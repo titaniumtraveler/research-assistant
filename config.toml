@@ -1,0 +1,3 @@
+[[source]]
+root = "~/Games/gog/book-of-hours/game/bh_Data/StreamingAssets/bhcontent/core"
+exclude = ["cultures"]
