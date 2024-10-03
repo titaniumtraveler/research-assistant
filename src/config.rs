@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 use encoding_rs::Encoding;
-use globset::Glob;
+use globset::{Glob, GlobMatcher};
 use serde::{Deserialize, Serialize};
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -102,9 +102,13 @@ impl Config {
                                 max_depth: max_depth.unwrap_or(usize::MAX),
                                 glob: match glob {
                                     Some(SourceGlob::Enable(false)) => ResolvedSourceGlob::Disabled,
-                                    Some(SourceGlob::Glob(glob)) => ResolvedSourceGlob::Glob(glob),
+                                    Some(SourceGlob::Glob(glob)) => ResolvedSourceGlob::Glob(
+                                        Glob::new(&glob)?.compile_matcher(),
+                                    ),
                                     Some(SourceGlob::Enable(true)) | None => {
-                                        ResolvedSourceGlob::Glob("*/*.json".to_owned())
+                                        ResolvedSourceGlob::Glob(
+                                            Glob::new("*/*.json")?.compile_matcher(),
+                                        )
                                     }
                                 },
                                 format: SourceFormat::resolve(format),
@@ -153,13 +157,13 @@ pub fn strip_root<'a>(root: &Path, entry: &'a DirEntry) -> &'a Path {
 impl ResolvedSourceFileConfig {
     pub fn source_files(
         &self,
-    ) -> Result<impl Iterator<Item = walkdir::Result<(DirEntry, ResolvedSourceFormat)>> + '_> {
+    ) -> impl Iterator<Item = walkdir::Result<(DirEntry, ResolvedSourceFormat)>> + '_ {
         let root = &self.root;
         let glob = match &self.glob {
-            ResolvedSourceGlob::Glob(glob) => Some(Glob::new(glob)?.compile_matcher()),
+            ResolvedSourceGlob::Glob(glob) => Some(glob),
             ResolvedSourceGlob::Disabled => None,
         };
-        let iter = WalkDir::new(&self.root)
+        WalkDir::new(&self.root)
             .max_depth(self.max_depth)
             .into_iter()
             .filter_entry(|entry| !self.exclude.contains(strip_root(root, entry)))
@@ -182,9 +186,7 @@ impl ResolvedSourceFileConfig {
                     }
                 },
                 Err(err) => Some(Err(err)),
-            });
-
-        Ok(iter)
+            })
     }
 }
 
@@ -195,8 +197,8 @@ pub struct ResolvedSourceFormat {
     pub allow_trailing_comma: bool,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum ResolvedSourceGlob {
-    Glob(String),
+    Glob(GlobMatcher),
     Disabled,
 }
