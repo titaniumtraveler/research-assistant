@@ -51,7 +51,7 @@ impl<T: Serialize> Serialize for StrRes<T> {
 #[derive(Serialize)]
 struct Sources {
     source: ResolvedSourceFileConfig,
-    files: StrRes<Vec<StrRes<Source>>>,
+    files: Vec<StrRes<Source>>,
 }
 
 struct Source {
@@ -82,16 +82,13 @@ fn run() -> anyhow::Result<String> {
                     .source_files()
                     .map(|files| {
                         files
-                            .map(|i| {
-                                i.map(|(file, config)| Source {
-                                    source: strip_root(&source.root, &file).display().to_string(),
-                                    format: config,
-                                })
-                                .into()
+                            .map(|(file, config)| Source {
+                                source: strip_root(&source.root, &file).display().to_string(),
+                                format: config,
                             })
-                            .collect()
+                            .into()
                     })
-                    .into(),
+                    .collect::<Vec<StrRes<_>>>(),
                 source,
             })
             .collect(),
