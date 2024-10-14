@@ -275,7 +275,7 @@ dependencies = [
 [[package]]
 name = "serde_json"
 version = "1.0.128"
-source = "git+https://github.com/titaniumtraveler/serde-json?branch=fork/book_of_hours#ff8161d0961a70592015d9b06d920fddbd9318ad"
+source = "git+https://github.com/titaniumtraveler/serde-json?branch=fork/book_of_hours#9e21900e3356756c3d15da44896ec079e0fd923d"
 dependencies = [
  "itoa",
  "memchr",
