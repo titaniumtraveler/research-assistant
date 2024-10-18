@@ -12,153 +12,153 @@ mod serde_impl;
 #[serde(deny_unknown_fields)]
 pub struct Data {
     #[serde(default)]
-    achievements: Vec<Achievements>,
+    pub achievements: Vec<Achievements>,
     #[serde(default)]
-    cultures: Vec<Cultures>,
+    pub cultures: Vec<Cultures>,
     #[serde(default)]
-    decks: Vec<Decks>,
+    pub decks: Vec<Decks>,
     #[serde(default)]
-    dicta: Vec<Dicta>,
+    pub dicta: Vec<Dicta>,
     #[serde(default)]
-    elements: Vec<Elements>,
+    pub elements: Vec<Elements>,
     #[serde(default)]
-    endings: Vec<Endings>,
+    pub endings: Vec<Endings>,
     #[serde(default)]
-    legacies: Vec<Legacies>,
+    pub legacies: Vec<Legacies>,
     #[serde(default)]
-    levers: Vec<Levers>,
+    pub levers: Vec<Levers>,
     #[serde(default)]
-    portals: Vec<Portals>,
+    pub portals: Vec<Portals>,
     #[serde(default)]
-    recipes: Vec<Recipes>,
+    pub recipes: Vec<Recipes>,
     #[serde(default)]
-    settings: Vec<Settings>,
+    pub settings: Vec<Settings>,
     #[serde(default)]
-    verbs: Vec<Verbs>,
+    pub verbs: Vec<Verbs>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Achievements {
-    category: Option<String>,
+    pub category: Option<String>,
     #[serde(rename = "descriptionunlocked")]
-    description_unlocked: Option<String>,
+    pub description_unlocked: Option<String>,
     // TODO: convert `""` to `Option::None`
     #[serde(rename = "iconUnlocked")]
-    icon_unlocked: String,
-    id: String,
+    pub icon_unlocked: String,
+    pub id: String,
     #[serde(rename = "isCategory")]
     #[serde(default)]
-    is_category: bool,
+    pub is_category: bool,
     #[serde(rename = "isHidden")]
     #[serde(default)]
-    is_hidden: bool,
-    label: String,
+    pub is_hidden: bool,
+    pub label: String,
     #[serde(rename = "singleDescription")]
     #[serde(default)]
-    single_description: bool,
+    pub single_description: bool,
     #[serde(rename = "validateOnStorefront")]
     #[serde(default)]
-    validate_on_storefront: bool,
+    pub validate_on_storefront: bool,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Cultures {
     #[serde(rename = "boldallowed")]
-    bold_allowed: bool,
+    pub bold_allowed: bool,
     #[serde(rename = "endonym")]
-    endonym: String,
+    pub endonym: String,
     #[serde(rename = "exonym")]
-    exonym: String,
+    pub exonym: String,
     #[serde(rename = "fontscript")]
-    fontscript: String,
+    pub fontscript: String,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "released")]
-    released: bool,
+    pub released: bool,
     #[serde(rename = "uilabels")]
-    ui_labels: HashMap<String, String>,
+    pub ui_labels: HashMap<String, String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Decks {
-    comments: Option<String>,
+    pub comments: Option<String>,
     #[serde(rename = "drawmessages")]
-    draw_messages: Option<BTreeMap<String, String>>,
+    pub draw_messages: Option<BTreeMap<String, String>>,
     #[serde(rename = "defaultcard")]
-    default_card: Option<String>,
+    pub default_card: Option<String>,
     #[serde(rename = "desc")]
     #[serde(alias = "description")]
-    desc: Option<String>,
+    pub desc: Option<String>,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "label")]
-    label: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "resetonexhaustion")]
     #[serde(default)]
-    reset_on_exhaustion: bool,
+    pub reset_on_exhaustion: bool,
     #[serde(rename = "spec")]
-    spec: Vec<String>,
+    pub spec: Vec<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Dicta {
     #[serde(rename = "AlternativeDefaultWorldSpherePaths")]
-    alternative_default_world_sphere_paths: Vec<String>,
+    pub alternative_default_world_sphere_paths: Vec<String>,
     #[serde(rename = "DefaultCardBack")]
-    default_card_back: Option<String>,
+    pub default_card_back: Option<String>,
     #[serde(rename = "DefaultGameSpeed")]
     // TODO parse f32 from String
-    default_game_speed: String,
+    pub default_game_speed: String,
     #[serde(rename = "DefaultLongTravelDuration")]
     #[serde(deserialize_with = "parse_opt_f32")]
     #[serde(default)]
-    default_long_travel_duration: Option<f32>,
+    pub default_long_travel_duration: Option<f32>,
     #[serde(rename = "DefaultQuickTravelDuration")]
     #[serde(deserialize_with = "parse_opt_f32")]
     #[serde(default)]
-    default_quick_travel_duration: Option<f32>,
+    pub default_quick_travel_duration: Option<f32>,
     #[serde(rename = "DefaultTravelDuration")]
     #[serde(deserialize_with = "parse_opt_f32")]
     #[serde(default)]
-    default_travel_duration: Option<f32>,
+    pub default_travel_duration: Option<f32>,
     #[serde(rename = "DefaultWorldSpherePath")]
-    default_world_sphere_path: String,
+    pub default_world_sphere_path: String,
     #[serde(rename = "GameOverScene")]
-    game_over_scene: String,
+    pub game_over_scene: String,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "LoadingScene")]
-    loading_scene: Option<String>,
+    pub loading_scene: Option<String>,
     #[serde(rename = "LogoScene")]
-    logo_scene: String,
+    pub logo_scene: String,
     #[serde(rename = "MaxSuitabilityPulseFrequency")]
     #[serde(deserialize_with = "parse_opt_f32")]
     #[serde(default)]
-    max_suitability_pulse_frequency: Option<f32>,
+    pub max_suitability_pulse_frequency: Option<f32>,
     #[serde(rename = "MenuScene")]
-    menu_scene: String,
+    pub menu_scene: String,
     #[serde(rename = "NewGameScene")]
-    new_game_scene: String,
+    pub new_game_scene: String,
     #[serde(rename = "NoteElementId")]
-    note_element_id: String,
+    pub note_element_id: String,
     #[serde(rename = "PlayfieldScene")]
-    playfield_scene: String,
+    pub playfield_scene: String,
     #[serde(rename = "QuoteScene")]
-    quote_scene: String,
+    pub quote_scene: String,
     #[serde(rename = "StoredManifestation")]
-    stored_manifestation: Option<String>,
+    pub stored_manifestation: Option<String>,
     #[serde(rename = "StoredPhyicalManifestation")]
-    stored_phyical_manifestation: Option<String>,
+    pub stored_phyical_manifestation: Option<String>,
     #[serde(rename = "SuitabilityPulseSpeed")]
     #[serde(deserialize_with = "parse_opt_f32")]
     #[serde(default)]
-    suitability_pulse_speed: Option<f32>,
+    pub suitability_pulse_speed: Option<f32>,
     #[serde(rename = "WorldSphereType")]
-    world_sphere_type: String,
+    pub world_sphere_type: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -166,229 +166,229 @@ pub struct Dicta {
 pub struct Elements {
     #[serde(rename = "achievements")]
     #[serde(default)]
-    achievements: Vec<String>,
+    pub achievements: Vec<String>,
     #[serde(rename = "AlphaLabelOverride")]
-    alpha_label_override: Option<String>,
+    pub alpha_label_override: Option<String>,
     #[serde(default)]
-    ambits: BTreeMap<String, u32>,
+    pub ambits: BTreeMap<String, u32>,
     #[serde(default)]
-    aspects: BTreeMap<String, u32>,
-    audio: Option<String>,
+    pub aspects: BTreeMap<String, u32>,
+    pub audio: Option<String>,
     #[serde(rename = "burnTo")]
-    burn_to: Option<String>,
-    comments: Option<String>,
-    commute: Option<Vec<String>>,
+    pub burn_to: Option<String>,
+    pub comments: Option<String>,
+    pub commute: Option<Vec<String>>,
     #[serde(rename = "decayto")]
     #[serde(alias = "decayTo")]
-    decay_to: Option<String>,
+    pub decay_to: Option<String>,
     #[serde(alias = "desc")]
     #[serde(alias = "Desc")]
-    description: Option<String>,
-    icon: Option<String>,
+    pub description: Option<String>,
+    pub icon: Option<String>,
     #[serde(alias = "ID")]
-    id: String,
+    pub id: String,
     #[serde(rename = "induces")]
-    induces: Option<Vec<ElementsInduces>>,
-    imms: Option<Vec<ElementsImms>>,
-    inherits: Option<String>,
+    pub induces: Option<Vec<ElementsInduces>>,
+    pub imms: Option<Vec<ElementsImms>>,
+    pub inherits: Option<String>,
     #[serde(rename = "isaspect")]
     #[serde(alias = "isAspect")]
     #[serde(default)]
-    is_aspect: bool,
+    pub is_aspect: bool,
     #[serde(alias = "isHidden")]
     #[serde(rename = "ishidden")]
     #[serde(default)]
     #[serde(deserialize_with = "parse_bool")]
-    is_hidden: bool,
+    pub is_hidden: bool,
     #[serde(alias = "Label")]
-    label: Option<String>,
-    lever: Option<String>,
-    lifetime: Option<f32>,
+    pub label: Option<String>,
+    pub lever: Option<String>,
+    pub lifetime: Option<f32>,
     #[serde(rename = "manifestationtype")]
     #[serde(alias = "ManifestationType")]
-    manifestation_type: Option<String>,
+    pub manifestation_type: Option<String>,
     #[serde(rename = "metafictional")]
     #[serde(default)]
-    metafictional: bool,
+    pub metafictional: bool,
     #[serde(alias = "noArtNeeded")]
     #[serde(rename = "noartneeded")]
     #[serde(default)]
-    no_art_needed: bool,
+    pub no_art_needed: bool,
     #[serde(default)]
-    resaturate: bool,
+    pub resaturate: bool,
     #[serde(rename = "reverseambittablesdisplay")]
     #[serde(default)]
     // TODO: This *might* default to true
-    reverse_ambit_tables_display: bool,
+    pub reverse_ambit_tables_display: bool,
     #[serde(default)]
-    slots: Vec<ElementsSlots>,
-    sort: Option<String>,
+    pub slots: Vec<ElementsSlots>,
+    pub sort: Option<String>,
     #[serde(default)]
     #[serde(deserialize_with = "parse_bool")]
-    unique: bool,
+    pub unique: bool,
     #[serde(rename = "uniquenessgroup")]
-    uniqueness_group: Option<String>,
+    pub uniqueness_group: Option<String>,
     #[serde(rename = "verbicon")]
-    verb_icon: Option<String>,
+    pub verb_icon: Option<String>,
     #[serde(rename = "xexts")]
     #[serde(default)]
-    xexts: BTreeMap<String, String>,
+    pub xexts: BTreeMap<String, String>,
     #[serde(rename = "xtriggers")]
-    xtriggers: Option<BTreeMap<String, StringMapOrArray<StringOrStruct<ElementsXTriggers>>>>,
+    pub xtriggers: Option<BTreeMap<String, StringMapOrArray<StringOrStruct<ElementsXTriggers>>>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
-struct ElementsInduces {
-    chance: u32,
-    id: String,
+pub struct ElementsInduces {
+    pub chance: u32,
+    pub id: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ElementsImms {
-    effects: BTreeMap<String, Value>,
-    reqs: BTreeMap<String, u32>,
+    pub effects: BTreeMap<String, Value>,
+    pub reqs: BTreeMap<String, u32>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ElementsSlots {
     #[serde(rename = "actionid")]
-    action_id: String,
+    pub action_id: String,
     #[serde(rename = "consumes")]
     #[serde(default)]
-    consumes: bool,
-    description: Option<String>,
+    pub consumes: bool,
+    pub description: Option<String>,
     #[serde(default)]
-    essential: BTreeMap<String, u32>,
+    pub essential: BTreeMap<String, u32>,
     #[serde(default)]
-    forbidden: BTreeMap<String, i32>,
-    id: String,
+    pub forbidden: BTreeMap<String, i32>,
+    pub id: String,
     #[serde(rename = "ifaspectspresent")]
-    if_aspects_present: Option<BTreeMap<String, u32>>,
-    label: Option<String>,
+    pub if_aspects_present: Option<BTreeMap<String, u32>>,
+    pub label: Option<String>,
     #[serde(default)]
-    required: BTreeMap<String, u32>,
+    pub required: BTreeMap<String, u32>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ElementsXTriggers {
     #[serde(default)]
-    additive: bool,
+    pub additive: bool,
     #[serde(default = "u32_100")]
-    chance: u32,
+    pub chance: u32,
     // TODO: parse into `""`, `"^"` or `String`
-    id: String,
+    pub id: String,
     // TODO: parse into `-1`, `1..=3` or `"^"`
-    level: Option<Value>,
+    pub level: Option<Value>,
     // TODO: parse into `"mutate"`, `"spawn"` or `"transform"`
-    morpheffect: Option<String>,
+    pub morpheffect: Option<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Endings {
-    achievements: Option<Vec<String>>,
-    anim: Option<String>,
-    comments: Option<String>,
+    pub achievements: Option<Vec<String>>,
+    pub anim: Option<String>,
+    pub comments: Option<String>,
     #[serde(alias = "desc")]
     #[serde(alias = "Desc")]
-    description: Option<String>,
+    pub description: Option<String>,
     // TODO: maybe parse into limited list:
     // `"Enigmatic"`, `"Grand"`, `"Pale"`, `"positive"`
-    flavour: String,
-    id: String,
-    image: String,
-    label: String,
+    pub flavour: String,
+    pub id: String,
+    pub image: String,
+    pub label: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Legacies {
     #[serde(rename = "$derives")]
-    derives: Option<String>,
+    pub derives: Option<String>,
     #[serde(rename = "availableWithoutEndingMatch")]
-    available_without_ending_match: bool,
-    comments: Option<String>,
+    pub available_without_ending_match: bool,
+    pub comments: Option<String>,
     #[serde(alias = "desc")]
     #[serde(alias = "Desc")]
-    description: String,
-    effects: Option<BTreeMap<String, u32>>,
+    pub description: String,
+    pub effects: Option<BTreeMap<String, u32>>,
     #[serde(rename = "excludesOnEnding")]
-    excludes_on_ending: Option<Vec<String>>,
-    family: Option<String>,
+    pub excludes_on_ending: Option<Vec<String>>,
+    pub family: Option<String>,
     #[serde(rename = "fromending")]
-    from_ending: String,
-    id: String,
-    image: Option<String>,
-    label: Option<String>,
+    pub from_ending: String,
+    pub id: String,
+    pub image: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "newstart")]
     #[serde(default)]
-    new_start: bool,
+    pub new_start: bool,
     #[serde(rename = "startdescription")]
-    start_description: Option<String>,
+    pub start_description: Option<String>,
     #[serde(rename = "startingverbid")]
-    starting_verb_id: Option<String>,
+    pub starting_verb_id: Option<String>,
     #[serde(rename = "startup")]
-    startup: Option<Vec<LegaciesStartup>>,
+    pub startup: Option<Vec<LegaciesStartup>>,
     #[serde(rename = "statusbarelements")]
-    statusbar_elements: Option<Vec<StringOrStruct<LegaciesStatusbarElements>>>,
+    pub statusbar_elements: Option<Vec<StringOrStruct<LegaciesStatusbarElements>>>,
     #[serde(rename = "tablecoverimage")]
-    table_cover_image: Option<String>,
+    pub table_cover_image: Option<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct LegaciesStartup {
-    id: String,
+    pub id: String,
     #[serde(rename = "topath")]
-    to_path: String,
+    pub to_path: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct LegaciesStatusbarElements {
     #[serde(rename = "format")]
-    format: Option<Vec<String>>,
+    pub format: Option<Vec<String>>,
     #[serde(rename = "ids")]
-    ids: StringOrStringArray,
+    pub ids: StringOrStringArray,
     #[serde(rename = "styles")]
-    styles: StringOrStringArray,
+    pub styles: StringOrStringArray,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Levers {
     #[serde(rename = "comments")]
-    comments: Option<String>,
+    pub comments: Option<String>,
     #[serde(rename = "defaultValue")]
-    default_value: String,
+    pub default_value: String,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "onGameEnd")]
-    on_game_end: bool,
+    pub on_game_end: bool,
     #[serde(rename = "redirects")]
-    redirects: Option<BTreeMap<String, String>>,
+    pub redirects: Option<BTreeMap<String, String>>,
     #[serde(rename = "requiredScore")]
-    required_score: u32,
+    pub required_score: u32,
     #[serde(rename = "weights")]
-    weights: Option<BTreeMap<String, i32>>,
+    pub weights: Option<BTreeMap<String, i32>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Portals {
-    consequences: Option<Vec<PortalsConsequences>>,
-    description: String,
+    pub consequences: Option<Vec<PortalsConsequences>>,
+    pub description: String,
     #[serde(rename = "egressid")]
-    egress_id: String,
-    icon: String,
-    id: String,
-    label: String,
+    pub egress_id: String,
+    pub icon: String,
+    pub id: String,
+    pub label: String,
     #[serde(rename = "otherworldid")]
-    otherworld_id: String,
+    pub otherworld_id: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -396,203 +396,203 @@ pub struct Portals {
 pub struct PortalsConsequences {
     #[serde(rename = "deckeffects")]
     // TODO: This seems to be a single `{ "<key>": 1 }` pair in every case
-    deckeffects: Option<BTreeMap<String, u32>>,
+    pub deckeffects: Option<BTreeMap<String, u32>>,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "topath")]
-    topath: String,
+    pub topath: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Recipes {
     #[serde(default)]
-    achievements: Vec<String>,
+    pub achievements: Vec<String>,
     #[serde(rename = "actionid")]
     #[serde(alias = "actionId")]
-    action_id: Option<String>,
-    alt: Option<Vec<RecipesAlt>>,
+    pub action_id: Option<String>,
+    pub alt: Option<Vec<RecipesAlt>>,
     #[serde(rename = "ambittable")]
     #[serde(deserialize_with = "parse_bool")]
     #[serde(default)]
-    ambit_table: bool,
+    pub ambit_table: bool,
     #[serde(deserialize_with = "recipes_aspects")]
     #[serde(default)]
-    aspects: Option<BTreeMap<String, i32>>,
+    pub aspects: Option<BTreeMap<String, i32>>,
     #[serde(rename = "audiooneshot")]
-    audio_oneshot: Option<String>,
+    pub audio_oneshot: Option<String>,
     #[serde(default = "bool_true")]
-    blocks: bool,
+    pub blocks: bool,
     #[serde(rename = "burnimage")]
-    burnimage: Option<String>,
-    comments: Option<String>,
+    pub burnimage: Option<String>,
+    pub comments: Option<String>,
     #[serde(deserialize_with = "parse_bool")]
     #[serde(default)]
-    craftable: bool,
+    pub craftable: bool,
     #[serde(rename = "deckeffects")]
-    deck_effects: Option<BTreeMap<String, u32>>,
+    pub deck_effects: Option<BTreeMap<String, u32>>,
     #[serde(rename = "deleteverb")]
-    deleteverb: Option<BTreeMap<String, u32>>,
+    pub deleteverb: Option<BTreeMap<String, u32>>,
     #[serde(alias = "desc")]
     #[serde(alias = "Desc")]
-    description: Option<String>,
-    effects: Option<BTreeMap<String, StringOrI32>>,
-    ending: Option<String>,
+    pub description: Option<String>,
+    pub effects: Option<BTreeMap<String, StringOrI32>>,
+    pub ending: Option<String>,
     #[serde(rename = "extantreqs")]
-    extant_reqs: Option<BTreeMap<String, i32>>,
+    pub extant_reqs: Option<BTreeMap<String, i32>>,
     // TODO: parse value as 0, 1, 4, "queue", "set"
-    fx: Option<BTreeMap<String, Value>>,
+    pub fx: Option<BTreeMap<String, Value>>,
     #[serde(rename = "fxreqs")]
-    fx_reqs: Option<BTreeMap<String, String>>,
+    pub fx_reqs: Option<BTreeMap<String, String>>,
     #[serde(rename = "greq")]
-    g_req: Option<BTreeMap<String, i32>>,
+    pub g_req: Option<BTreeMap<String, i32>>,
     #[serde(rename = "haltverb")]
-    haltverb: Option<BTreeMap<String, u32>>,
+    pub haltverb: Option<BTreeMap<String, u32>>,
     #[serde(rename = "hintonly")]
     #[serde(default)]
-    hint_only: bool,
-    icon: Option<String>,
-    id: String,
+    pub hint_only: bool,
+    pub icon: Option<String>,
+    pub id: String,
     #[serde(rename = "inductions")]
-    inductions: Option<Vec<RecipesInductions>>,
-    inherits: Option<String>,
+    pub inductions: Option<Vec<RecipesInductions>>,
+    pub inherits: Option<String>,
     #[serde(rename = "internaldeck")]
-    internal_deck: Option<RecipesInternalDeck>,
+    pub internal_deck: Option<RecipesInternalDeck>,
     #[serde(alias = "Label")]
-    label: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "lalt")]
-    l_alt: Option<String>,
-    linked: Option<StringMapOrArray<StringOrStruct<RecipesLinked>>>,
+    pub l_alt: Option<String>,
+    pub linked: Option<StringMapOrArray<StringOrStruct<RecipesLinked>>>,
     #[serde(rename = "maxexecutions")]
-    max_executions: Option<u32>,
-    mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
+    pub max_executions: Option<u32>,
+    pub mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
     // TODO: this could be just BTreeSet<String>,
     // because it really is just `{ "<string>": 1 }` for all instances
     #[serde(rename = "ngreq")]
-    ng_req: Option<BTreeMap<String, i32>>,
+    pub ng_req: Option<BTreeMap<String, i32>>,
     #[serde(default)]
-    notable: bool,
+    pub notable: bool,
     #[serde(rename = "portaleffect")]
-    portal_effect: Option<String>,
-    preface: Option<String>,
-    preslots: Option<Vec<RecipesPreslots>>,
-    purge: Option<BTreeMap<String, u32>>,
+    pub portal_effect: Option<String>,
+    pub preface: Option<String>,
+    pub preslots: Option<Vec<RecipesPreslots>>,
+    pub purge: Option<BTreeMap<String, u32>>,
     #[serde(alias = "reqs")]
-    requirements: Option<BTreeMap<String, StringOrI32>>,
+    pub requirements: Option<BTreeMap<String, StringOrI32>>,
     #[serde(rename = "run")]
-    run: Option<String>,
+    pub run: Option<String>,
     #[serde(rename = "signalEndingFlavour")]
-    signal_ending_flavour: Option<String>,
+    pub signal_ending_flavour: Option<String>,
     #[serde(rename = "signalimportantloop")]
     #[serde(default)]
-    signal_important_loop: bool,
+    pub signal_important_loop: bool,
     #[serde(rename = "slots")]
-    slots: Option<Vec<RecipesSlots>>,
+    pub slots: Option<Vec<RecipesSlots>>,
     #[serde(rename = "startdescription")]
     #[serde(alias = "StartDescription")]
-    start_description: Option<String>,
+    pub start_description: Option<String>,
     #[serde(rename = "startlabel")]
-    start_label: Option<String>,
+    pub start_label: Option<String>,
     #[serde(rename = "tablereqs")]
-    table_reqs: Option<BTreeMap<String, u32>>,
+    pub table_reqs: Option<BTreeMap<String, u32>>,
     #[serde(deserialize_with = "parse_opt_u32")]
     #[serde(default)]
-    warmup: Option<u32>,
+    pub warmup: Option<u32>,
     #[serde(rename = "xpans")]
-    xpans: Option<BTreeMap<String, u32>>,
+    pub xpans: Option<BTreeMap<String, u32>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesAlt {
-    actionid: Option<String>,
+    pub actionid: Option<String>,
     #[serde(default)]
-    additional: bool,
+    pub additional: bool,
     #[serde(rename = "challenges")]
     // TODO: Could be parsed as `BTreeMap<String, Base>` (where `Base` matches `"base"`)
-    challenges: Option<BTreeMap<String, String>>,
-    chance: Option<u32>,
+    pub challenges: Option<BTreeMap<String, String>>,
+    pub chance: Option<u32>,
     #[serde(rename = "craftable")]
     #[serde(default = "bool_true")]
-    craftable: bool,
+    pub craftable: bool,
     #[serde(rename = "deckeffects")]
-    deck_effects: Option<BTreeMap<String, u32>>,
-    description: Option<String>,
-    effects: Option<BTreeMap<String, StringOrI32>>,
-    ending: Option<String>,
-    expulsion: Option<RecipesLinkedExpulsion>,
+    pub deck_effects: Option<BTreeMap<String, u32>>,
+    pub description: Option<String>,
+    pub effects: Option<BTreeMap<String, StringOrI32>>,
+    pub ending: Option<String>,
+    pub expulsion: Option<RecipesLinkedExpulsion>,
     #[serde(rename = "extantreqs")]
-    extant_reqs: Option<BTreeMap<String, i32>>,
-    id: String,
-    label: Option<String>,
-    mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
-    requirements: Option<BTreeMap<String, i32>>,
+    pub extant_reqs: Option<BTreeMap<String, i32>>,
+    pub id: String,
+    pub label: Option<String>,
+    pub mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
+    pub requirements: Option<BTreeMap<String, i32>>,
     #[serde(rename = "signalEndingFlavour")]
-    signal_ending_flavour: Option<String>,
+    pub signal_ending_flavour: Option<String>,
     #[serde(rename = "startdescription")]
-    start_description: Option<String>,
+    pub start_description: Option<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesInternalDeck {
     #[serde(rename = "defaultcard")]
-    default_card: Option<String>,
+    pub default_card: Option<String>,
     #[serde(rename = "description")]
-    description: Option<String>,
-    draws: u32,
+    pub description: Option<String>,
+    pub draws: u32,
     #[serde(rename = "label")]
-    label: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "resetonexhaustion")]
-    reset_on_exhaustion: bool,
-    spec: Vec<String>,
+    pub reset_on_exhaustion: bool,
+    pub spec: Vec<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesLinked {
     #[serde(rename = "actionid")]
-    actionid: Option<String>,
+    pub actionid: Option<String>,
     #[serde(default)]
-    additional: bool,
+    pub additional: bool,
     // TODO: Could be parsed as `BTreeMap<String, Base>` (where `Base` matches `"base"`)
-    challenges: Option<BTreeMap<String, String>>,
+    pub challenges: Option<BTreeMap<String, String>>,
     #[serde(rename = "chance")]
-    chance: Option<u32>,
+    pub chance: Option<u32>,
     #[serde(rename = "effects")]
-    effects: Option<BTreeMap<String, u32>>,
-    expulsion: Option<RecipesLinkedExpulsion>,
+    pub effects: Option<BTreeMap<String, u32>>,
+    pub expulsion: Option<RecipesLinkedExpulsion>,
     #[serde(rename = "extantreqs")]
-    extant_reqs: Option<BTreeMap<String, i32>>,
+    pub extant_reqs: Option<BTreeMap<String, i32>>,
     #[serde(rename = "id")]
-    id: String,
-    label: Option<String>,
+    pub id: String,
+    pub label: Option<String>,
     // TODO: consolidate that with `Linked`
     // Find out what it is actually doing for that
-    linked: Option<Vec<BTreeMap<String, String>>>,
-    mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
+    pub linked: Option<Vec<BTreeMap<String, String>>>,
+    pub mutations: Option<StringMapOrArray<StringOrStruct<RecipesMutations>>>,
     #[serde(rename = "outputpath")]
     // TODO: `^` carrot?!
-    output_path: Option<String>,
+    pub output_path: Option<String>,
     #[serde(rename = "purge")]
-    purge: Option<BTreeMap<String, u32>>,
-    requirements: Option<BTreeMap<String, i32>>,
+    pub purge: Option<BTreeMap<String, u32>>,
+    pub requirements: Option<BTreeMap<String, i32>>,
     #[serde(rename = "shuffle")]
     #[serde(default)]
-    shuffle: bool,
+    pub shuffle: bool,
     #[serde(rename = "startdescription")]
-    startdescription: Option<String>,
+    pub startdescription: Option<String>,
     #[serde(rename = "topath")]
-    topath: Option<String>,
+    pub topath: Option<String>,
     #[serde(rename = "warmup")]
-    warmup: Option<u32>,
+    pub warmup: Option<u32>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesInductions {
-    chance: Option<u32>,
-    id: String,
+    pub chance: Option<u32>,
+    pub id: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -600,9 +600,9 @@ pub struct RecipesInductions {
 pub struct RecipesLinkedExpulsion {
     // TODO: this could be just String, or BTreeSet<String>,
     // because it really is just `{ "<string>": 1 }` for all instances
-    filter: BTreeMap<String, u32>,
+    pub filter: BTreeMap<String, u32>,
     // TODO: Seems to just be 1 or 99
-    limit: u32,
+    pub limit: u32,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -610,77 +610,77 @@ pub struct RecipesLinkedExpulsion {
 pub struct RecipesMutations {
     #[serde(deserialize_with = "parse_bool")]
     #[serde(default)]
-    additive: bool,
-    filter: String,
-    level: StringOrI32,
-    mutate: String,
+    pub additive: bool,
+    pub filter: String,
+    pub level: StringOrI32,
+    pub mutate: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesPreslots {
     #[serde(rename = "description")]
-    description: Option<String>,
+    pub description: Option<String>,
     // TODO: This again could maybe just be BTreeSet<String>
-    essential: Option<BTreeMap<String, u32>>,
-    forbidden: Option<BTreeMap<String, u32>>,
+    pub essential: Option<BTreeMap<String, u32>>,
+    pub forbidden: Option<BTreeMap<String, u32>>,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "label")]
-    label: String,
-    required: Option<BTreeMap<String, u32>>,
+    pub label: String,
+    pub required: Option<BTreeMap<String, u32>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecipesSlots {
     #[serde(rename = "actionid")]
-    actionid: Option<String>,
+    pub actionid: Option<String>,
     #[serde(rename = "consumes")]
     #[serde(default)]
-    consumes: bool,
-    description: Option<String>,
+    pub consumes: bool,
+    pub description: Option<String>,
     #[serde(rename = "essential")]
-    essential: Option<BTreeMap<String, i32>>,
+    pub essential: Option<BTreeMap<String, i32>>,
     #[serde(rename = "forbidden")]
-    forbidden: Option<BTreeMap<String, i32>>,
+    pub forbidden: Option<BTreeMap<String, i32>>,
     #[serde(rename = "frompath")]
-    frompath: Option<String>,
+    pub frompath: Option<String>,
     #[serde(rename = "greedy")]
     #[serde(default)]
-    greedy: bool,
+    pub greedy: bool,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "label")]
-    label: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "required")]
-    required: Option<BTreeMap<String, i32>>,
+    pub required: Option<BTreeMap<String, i32>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Settings {
-    datatype: Option<String>,
+    pub datatype: Option<String>,
     #[serde(rename = "defaultvalue")]
     #[serde(alias = "defaultValue")]
-    default_value: Option<Value>,
-    hint: Option<String>,
-    id: String,
+    pub default_value: Option<Value>,
+    pub hint: Option<String>,
+    pub id: String,
     #[serde(rename = "maxvalue")]
-    max_value: Option<i32>,
+    pub max_value: Option<i32>,
     #[serde(rename = "minvalue")]
-    min_value: Option<i32>,
+    pub min_value: Option<i32>,
     #[serde(rename = "PlatformDefaultValues")]
-    platform_default_values: Option<BTreeMap<String, String>>,
+    pub platform_default_values: Option<BTreeMap<String, String>>,
     #[serde(rename = "tabid")]
-    tab_id: Option<String>,
-    ui: Option<String>,
+    pub tab_id: Option<String>,
+    pub ui: Option<String>,
     // TODO: This could be parsed as `Option<BTreeMap<i32, String>>`
     #[serde(rename = "valuelabels")]
-    value_labels: Option<BTreeMap<String, String>>,
+    pub value_labels: Option<BTreeMap<String, String>>,
     // TODO: Same as [`Self::value_labels`]
     #[serde(rename = "valuenotifications")]
-    valuenotifications: Option<BTreeMap<String, String>>,
+    pub valuenotifications: Option<BTreeMap<String, String>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -688,46 +688,46 @@ pub struct Settings {
 pub struct Verbs {
     #[serde(rename = "ambits")]
     #[serde(default)]
-    ambits: bool,
+    pub ambits: bool,
     #[serde(rename = "aspects")]
-    aspects: Option<BTreeMap<String, u32>>,
+    pub aspects: Option<BTreeMap<String, u32>>,
     #[serde(rename = "audio")]
-    audio: Option<String>,
+    pub audio: Option<String>,
     #[serde(rename = "category")]
-    category: Option<String>,
+    pub category: Option<String>,
     #[serde(rename = "comments")]
-    comments: Option<String>,
+    pub comments: Option<String>,
     #[serde(alias = "desc")]
     #[serde(alias = "Desc")]
-    description: Option<String>,
+    pub description: Option<String>,
     #[serde(rename = "hints")]
-    hints: Option<Vec<String>>,
-    icon: Option<String>,
+    pub hints: Option<Vec<String>>,
+    pub icon: Option<String>,
     #[serde(rename = "id")]
-    id: String,
+    pub id: String,
     #[serde(rename = "label")]
-    label: Option<String>,
+    pub label: Option<String>,
     #[serde(rename = "maxnotes")]
     #[serde(alias = "maxNotes")]
     #[serde(alias = "MaxNotes")]
-    max_notes: Option<u32>,
+    pub max_notes: Option<u32>,
     #[serde(default)]
-    multiple: bool,
-    slot: Option<VerbsSlot>,
-    slots: Option<Vec<VerbsSlot>>,
+    pub multiple: bool,
+    pub slot: Option<VerbsSlot>,
+    pub slots: Option<Vec<VerbsSlot>>,
     #[serde(default)]
     #[serde(deserialize_with = "parse_bool")]
-    spontaneous: bool,
-    xtriggers: Option<BTreeMap<String, String>>,
+    pub spontaneous: bool,
+    pub xtriggers: Option<BTreeMap<String, String>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct VerbsSlot {
-    description: Option<String>,
-    essential: Option<BTreeMap<String, u32>>,
-    forbidden: Option<BTreeMap<String, u32>>,
-    id: String,
-    label: Option<String>,
-    required: Option<BTreeMap<String, u32>>,
+    pub description: Option<String>,
+    pub essential: Option<BTreeMap<String, u32>>,
+    pub forbidden: Option<BTreeMap<String, u32>>,
+    pub id: String,
+    pub label: Option<String>,
+    pub required: Option<BTreeMap<String, u32>>,
 }
